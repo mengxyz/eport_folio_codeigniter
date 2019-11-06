@@ -40,6 +40,16 @@ class Student extends CI_Controller {
 		$this->load->view('editstudent_view',$data);
 		$this->load->view('foot');
 	}
+	public function delete($std_id)
+	{
+		$data = $this->db->select('*')->from('student')->where('std_id',$std_id)->get()->row();
+			$file_name = $data->std_pic;
+			echo $std_id;
+			if($file_name != ""){
+				@unlink('./img/'.$file_name);
+			}
+			$this->student_model->deletestudent($std_id);
+	}
 	public function editdata()
 	{
 		$this->student_model->editstudent();

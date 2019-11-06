@@ -23,7 +23,7 @@ class Student_model extends CI_Model
         $file_name = $data->std_pic;
         $filename = "";
         if ($_FILES["std_pic"]["name"] != "") {
-            @unlink('./img' . $file_name);
+            @unlink('./img/' . $file_name);
 
 
             $type_file = pathinfo($_FILES["std_pic"]["name"], PATHINFO_EXTENSION);
@@ -81,9 +81,9 @@ class Student_model extends CI_Model
         return $query->result();
     }
 
-    public function deleteclassroom($c_id)
+    public function deletestudent($std_id)
     {
-        $this->db->delete('classroom', array('c_id' => $c_id));
-        return redirect('classroom', 'refresh');
+        $this->db->delete('student', array('std_id' => $std_id));
+       return redirect('student', 'refresh');
     }
 }

@@ -34,7 +34,7 @@
                                 <td><?php echo $rs->std_name ?></td>
                                 <td><?php echo $rs->c_name ?></td>
                                 <td><a  href="<?php echo site_url('student/edit/').$rs->std_id; ?>">แก้ไข</a></td>
-                                <td><a onclick="return confirm('คุณต้องการลบข้อมูลใช่หรือไม่')" href="<?php echo site_url('classroom/delete/').$rs->c_id; ?>">ลบ</a></td>
+                                <td><a onclick="return confirm('คุณต้องการลบข้อมูลใช่หรือไม่')" href="<?php echo site_url('student/delete/').$rs->std_id; ?>">ลบ</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>
